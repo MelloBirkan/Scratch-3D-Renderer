@@ -3,6 +3,10 @@
 *.out
 *.exe
 
+# executáveis
+main
+renderer
+
 # Arquivos de debug
 *.dSYM/
 
