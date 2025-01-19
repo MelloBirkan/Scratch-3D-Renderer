@@ -1,0 +1,37 @@
+# Arquivos objeto e executáveis
+*.o
+*.out
+*.exe
+
+# Arquivos de debug
+*.dSYM/
+
+# Arquivos temporários
+*.swp
+*~
+.DS_Store
+
+# Diretório de build
+build/
+bin/
+obj/
+
+# Arquivos de dependência
+*.d
+
+# Arquivos de biblioteca
+*.lib
+*.a
+*.dll
+*.so
+*.dylib
+
+# Arquivos específicos do IDE/Editor
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Arquivos de log e cache
+*.log
+.cache/ 
