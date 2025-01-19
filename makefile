@@ -1,5 +1,9 @@
 build:
-	clang -Wall -std=c2x ./src/*.c -o renderer
+	clang -Wall -std=c17 ./src/*.c \
+	-I/opt/homebrew/include \
+	-L/opt/homebrew/lib \
+	-lSDL2 \
+	-o renderer
 
 run:
 	./renderer
