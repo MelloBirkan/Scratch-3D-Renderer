@@ -2,6 +2,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
+// Global Variables
 SDL_Window *window = NULL;
 SDL_Renderer *renderer = NULL;
 bool is_running = false;
@@ -13,7 +14,7 @@ bool initialize_window(void) {
   }
   window =
       SDL_CreateWindow(NULL, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
-                      600, 800, SDL_WINDOW_BORDERLESS);
+                       600, 800, SDL_WINDOW_BORDERLESS);
   if (!window) {
     fprintf(stderr, "Error creating SDL window.\n");
     return false;
@@ -28,9 +29,39 @@ bool initialize_window(void) {
   return true;
 }
 
+void process_input() {
+  SDL_Event event;
+  SDL_PollEvent(&event);
+
+  switch (event.type) {
+  case SDL_QUIT: // Quando clica no botão fechar
+    !is_running;
+    break;
+  case SDL_KEYDOWN:
+    if (event.key.keysym.sym == SDLK_ESCAPE)
+      !is_running;
+    break;
+  }
+}
+
+void update(void) {}
+
+void render(void) {
+  SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+  SDL_RenderClear(renderer);
+  SDL_RenderPresent(renderer);
+}
+
 int main(void) {
-  // Create SDL Window
   is_running = initialize_window();
+
+  setup();
+
+  while (is_running) {
+    process_input();
+    update();
+    render();
+  }
 
   return 0;
 }
